@@ -1,0 +1,370 @@
+{
+  "users": [
+    {
+      "_id": "672ba01414c35d3d42f1e897",
+      "username": "testuser",
+      "email": "test@example.com",
+      "password": "$2a$10$BXz0gXbgvPxTd1/atxjdwe5pBiuoaq6VzV9Qr/90l/Agn5qi9BzFe",
+      "ruolo": "user",
+      "createdAt": "2024-11-06T16:57:56.112Z",
+      "updatedAt": "2024-11-06T16:57:56.112Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b3281a05a5053caa3fbb8",
+      "username": "admin",
+      "password": "$2a$10$qdacVK7ouDGoNki8XBFNN.EaLonlvKmZH7GBtcPHBZOic4bhTN0BO",
+      "ruolo": "admin",
+      "nome": "Admin",
+      "cognome": "Test",
+      "attivo": true,
+      "ultimoAccesso": "2024-11-18T18:26:11.243Z",
+      "createdAt": "2024-11-18T12:26:41.616Z",
+      "updatedAt": "2024-11-18T18:26:11.244Z",
+      "__v": 0
+    }
+  ],
+  "clientes": [
+    {
+      "_id": "673b332adce09cfc97031021",
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "email": "mario.test@example.com",
+      "telefono": "1234567890",
+      "punti": 0,
+      "tipo": "abituale",
+      "stato": "attivo",
+      "indirizzi": [],
+      "createdAt": "2024-11-18T12:29:30.573Z",
+      "updatedAt": "2024-11-18T12:29:30.573Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b36ac7f882190dba4e0cf",
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "email": "mario.test.1731933868304@example.com",
+      "telefono": "123-1731933868304",
+      "punti": 0,
+      "tipo": "abituale",
+      "stato": "attivo",
+      "indirizzi": [],
+      "createdAt": "2024-11-18T12:44:28.603Z",
+      "updatedAt": "2024-11-18T12:44:28.603Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b3704baf94c52a7335a15",
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "email": "mario.test.1731933956238@example.com",
+      "telefono": "123-1731933956238",
+      "punti": 0,
+      "tipo": "abituale",
+      "stato": "attivo",
+      "indirizzi": [],
+      "createdAt": "2024-11-18T12:45:56.623Z",
+      "updatedAt": "2024-11-18T12:45:56.623Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b379ec76ce5ca864d224a",
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "email": "mario.test.1731934110025@example.com",
+      "telefono": "123-1731934110025",
+      "punti": 0,
+      "tipo": "abituale",
+      "stato": "attivo",
+      "indirizzi": [],
+      "createdAt": "2024-11-18T12:48:30.356Z",
+      "updatedAt": "2024-11-18T12:48:30.356Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b84db9736ffc12e2e8dbd",
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "email": "mario.test.1731953883356@example.com",
+      "telefono": "123-1731953883356",
+      "punti": 0,
+      "tipo": "abituale",
+      "stato": "attivo",
+      "indirizzi": [],
+      "createdAt": "2024-11-18T18:18:03.701Z",
+      "updatedAt": "2024-11-18T18:18:03.701Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b854c9736ffc12e2e8dd5",
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "email": "mario.test.1731953995918@example.com",
+      "telefono": "123-1731953995918",
+      "punti": 0,
+      "tipo": "abituale",
+      "stato": "attivo",
+      "indirizzi": [],
+      "createdAt": "2024-11-18T18:19:56.199Z",
+      "updatedAt": "2024-11-18T18:19:56.199Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b85e29736ffc12e2e8dee",
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "email": "mario.test.1731954146007@example.com",
+      "telefono": "123-1731954146007",
+      "punti": 0,
+      "tipo": "abituale",
+      "stato": "attivo",
+      "indirizzi": [],
+      "createdAt": "2024-11-18T18:22:26.301Z",
+      "updatedAt": "2024-11-18T18:22:26.301Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b86c39736ffc12e2e8e08",
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "email": "mario.test.1731954371091@example.com",
+      "telefono": "123-1731954371091",
+      "punti": 0,
+      "tipo": "abituale",
+      "stato": "attivo",
+      "indirizzi": [],
+      "createdAt": "2024-11-18T18:26:11.372Z",
+      "updatedAt": "2024-11-18T18:26:11.372Z",
+      "__v": 0
+    }
+  ],
+  "ordines": [
+    {
+      "_id": "672ba01414c35d3d42f1e89b",
+      "nomeCliente": "Test Cliente",
+      "telefono": "1234567890",
+      "dataRitiro": "2024-11-06T16:57:53.972Z",
+      "prodotti": [
+        {
+          "nome": "Test Prodotto",
+          "quantita": 2,
+          "prezzo": 10,
+          "unita": "kg",
+          "_id": "672ba01414c35d3d42f1e89c"
+        }
+      ],
+      "totale": 0,
+      "createdAt": "2024-11-06T16:57:56.396Z",
+      "updatedAt": "2024-11-06T16:57:56.396Z",
+      "__v": 0
+    },
+    {
+      "_id": "67378e51210fa0c0efcef847",
+      "prodotti": [
+        {
+          "prodotto": "Pardulas",
+          "quantita": 1,
+          "prezzo": 18,
+          "unita": "Kg",
+          "note": "",
+          "_id": "67378e51210fa0c0efcef848"
+        }
+      ],
+      "dataRitiro": "2024-11-15",
+      "oraRitiro": "11:11",
+      "nomeCliente": "fgerg",
+      "daViaggio": false,
+      "telefono": "",
+      "note": "",
+      "stato": "da fare",
+      "createdAt": "2024-11-15T18:09:21.440Z",
+      "updatedAt": "2024-11-15T18:09:21.440Z",
+      "__v": 0
+    },
+    {
+      "_id": "67378ea5210fa0c0efcef84a",
+      "prodotti": [
+        {
+          "prodotto": "Pardulas",
+          "quantita": 1,
+          "prezzo": 18,
+          "unita": "Kg",
+          "note": "",
+          "_id": "67378ea5210fa0c0efcef84b"
+        }
+      ],
+      "dataRitiro": "2024-11-15",
+      "oraRitiro": "11:11",
+      "nomeCliente": "fgerg",
+      "daViaggio": false,
+      "telefono": "",
+      "note": "",
+      "stato": "da fare",
+      "createdAt": "2024-11-15T18:10:45.319Z",
+      "updatedAt": "2024-11-15T18:10:45.319Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b332adce09cfc97031023",
+      "prodotti": [
+        {
+          "prodotto": "Pardulas",
+          "quantita": 1,
+          "prezzo": 18,
+          "unita": "Kg",
+          "_id": "673b332adce09cfc97031024"
+        }
+      ],
+      "dataRitiro": "2024-11-19",
+      "oraRitiro": "15:00",
+      "nomeCliente": "Mario Rossi",
+      "telefono": "1234567890",
+      "note": "Test ordine",
+      "stato": "da fare",
+      "createdAt": "2024-11-18T12:29:30.649Z",
+      "updatedAt": "2024-11-18T12:29:30.649Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b36ac7f882190dba4e0d2",
+      "prodotti": [
+        {
+          "prodotto": "Pardulas",
+          "quantita": 1,
+          "prezzo": 18,
+          "unita": "Kg",
+          "_id": "673b36ac7f882190dba4e0d3"
+        }
+      ],
+      "dataRitiro": "2024-11-19",
+      "oraRitiro": "15:00",
+      "nomeCliente": "Mario Rossi 1731933868304",
+      "telefono": "123-1731933868304",
+      "note": "Test ordine",
+      "stato": "da fare",
+      "createdAt": "2024-11-18T12:44:28.720Z",
+      "updatedAt": "2024-11-18T12:44:28.720Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b379ec76ce5ca864d224d",
+      "nomeCliente": "Mario Rossi 1731934110025",
+      "telefono": "123-1731934110025",
+      "prodotti": [
+        {
+          "prodotto": "Pardulas",
+          "quantita": 1,
+          "prezzo": 18,
+          "unita": "Kg",
+          "_id": "673b379ec76ce5ca864d224e"
+        }
+      ],
+      "dataRitiro": "2024-11-19T00:00:00.000Z",
+      "oraRitiro": "15:00",
+      "daViaggio": false,
+      "note": "Test ordine",
+      "stato": "da fare",
+      "totale": 18,
+      "creatoDa": "673b3281a05a5053caa3fbb8",
+      "createdAt": "2024-11-18T12:48:30.482Z",
+      "updatedAt": "2024-11-18T12:48:30.482Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b84db9736ffc12e2e8dc0",
+      "nomeCliente": "Mario Rossi 1731953883356",
+      "telefono": "123-1731953883356",
+      "prodotti": [
+        {
+          "prodotto": "Pardulas",
+          "quantita": 1,
+          "prezzo": 18,
+          "unita": "Kg",
+          "_id": "673b84db9736ffc12e2e8dc1"
+        }
+      ],
+      "dataRitiro": "2024-11-19T00:00:00.000Z",
+      "oraRitiro": "15:00",
+      "daViaggio": false,
+      "note": "Test ordine",
+      "stato": "da fare",
+      "totale": 18,
+      "creatoDa": "673b3281a05a5053caa3fbb8",
+      "createdAt": "2024-11-18T18:18:03.831Z",
+      "updatedAt": "2024-11-18T18:18:03.831Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b854c9736ffc12e2e8dd8",
+      "nomeCliente": "Mario Rossi 1731953995918",
+      "telefono": "123-1731953995918",
+      "prodotti": [
+        {
+          "prodotto": "Pardulas",
+          "quantita": 1,
+          "prezzo": 18,
+          "unita": "Kg",
+          "_id": "673b854c9736ffc12e2e8dd9"
+        }
+      ],
+      "dataRitiro": "2024-11-19T00:00:00.000Z",
+      "oraRitiro": "15:00",
+      "daViaggio": false,
+      "note": "Test ordine",
+      "stato": "da fare",
+      "totale": 18,
+      "creatoDa": "673b3281a05a5053caa3fbb8",
+      "createdAt": "2024-11-18T18:19:56.316Z",
+      "updatedAt": "2024-11-18T18:19:56.316Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b85e29736ffc12e2e8df1",
+      "nomeCliente": "Mario Rossi 1731954146007",
+      "telefono": "123-1731954146007",
+      "prodotti": [
+        {
+          "prodotto": "Pardulas",
+          "quantita": 1,
+          "prezzo": 18,
+          "unita": "Kg",
+          "_id": "673b85e29736ffc12e2e8df2"
+        }
+      ],
+      "dataRitiro": "2024-11-19T00:00:00.000Z",
+      "oraRitiro": "15:00",
+      "daViaggio": false,
+      "note": "Test ordine",
+      "stato": "da fare",
+      "totale": 18,
+      "creatoDa": "673b3281a05a5053caa3fbb8",
+      "createdAt": "2024-11-18T18:22:26.414Z",
+      "updatedAt": "2024-11-18T18:22:26.414Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b86c39736ffc12e2e8e0b",
+      "nomeCliente": "Mario Rossi 1731954371091",
+      "telefono": "123-1731954371091",
+      "prodotti": [
+        {
+          "prodotto": "Pardulas",
+          "quantita": 1,
+          "prezzo": 18,
+          "unita": "Kg",
+          "_id": "673b86c39736ffc12e2e8e0c"
+        }
+      ],
+      "dataRitiro": "2024-11-19T00:00:00.000Z",
+      "oraRitiro": "15:00",
+      "daViaggio": false,
+      "note": "Test ordine",
+      "stato": "da fare",
+      "totale": 18,
+      "creatoDa": "673b3281a05a5053caa3fbb8",
+      "createdAt": "2024-11-18T18:26:11.487Z",
+      "updatedAt": "2024-11-18T18:26:11.487Z",
+      "__v": 0
+    }
+  ]
+}

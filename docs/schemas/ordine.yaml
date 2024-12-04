@@ -1,0 +1,48 @@
+# docs/schemas/ordine.yaml
+Ordine:
+  type: object
+  required:
+    - nomeCliente
+    - dataRitiro
+    - oraRitiro
+    - prodotti
+  properties:
+    nomeCliente:
+      type: string
+    dataRitiro:
+      type: string
+      format: date
+    oraRitiro:
+      type: string
+    prodotti:
+      type: array
+      items:
+        $ref: '#/components/schemas/Prodotto'
+    daViaggio:
+      type: boolean
+    telefono:
+      type: string
+    note:
+      type: string
+    stato:
+      type: string
+      enum: [da fare, in lavorazione, completato]
+
+Prodotto:
+  type: object
+  required:
+    - prodotto
+    - quantita
+    - unita
+  properties:
+    prodotto:
+      type: string
+    quantita:
+      type: number
+    unita:
+      type: string
+      enum: [Kg, unità, €]
+    prezzo:
+      type: number
+    note:
+      type: string

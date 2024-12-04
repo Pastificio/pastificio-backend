@@ -1,0 +1,166 @@
+{
+  "users": [
+    {
+      "_id": "672ba01414c35d3d42f1e897",
+      "username": "testuser",
+      "email": "test@example.com",
+      "password": "$2a$10$BXz0gXbgvPxTd1/atxjdwe5pBiuoaq6VzV9Qr/90l/Agn5qi9BzFe",
+      "ruolo": "user",
+      "createdAt": "2024-11-06T16:57:56.112Z",
+      "updatedAt": "2024-11-06T16:57:56.112Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b3281a05a5053caa3fbb8",
+      "username": "admin",
+      "password": "$2a$10$qdacVK7ouDGoNki8XBFNN.EaLonlvKmZH7GBtcPHBZOic4bhTN0BO",
+      "ruolo": "admin",
+      "nome": "Admin",
+      "cognome": "Test",
+      "attivo": true,
+      "ultimoAccesso": "2024-11-18T12:44:28.469Z",
+      "createdAt": "2024-11-18T12:26:41.616Z",
+      "updatedAt": "2024-11-18T12:44:28.470Z",
+      "__v": 0
+    }
+  ],
+  "clientes": [
+    {
+      "_id": "673b332adce09cfc97031021",
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "email": "mario.test@example.com",
+      "telefono": "1234567890",
+      "punti": 0,
+      "tipo": "abituale",
+      "stato": "attivo",
+      "indirizzi": [],
+      "createdAt": "2024-11-18T12:29:30.573Z",
+      "updatedAt": "2024-11-18T12:29:30.573Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b36ac7f882190dba4e0cf",
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "email": "mario.test.1731933868304@example.com",
+      "telefono": "123-1731933868304",
+      "punti": 0,
+      "tipo": "abituale",
+      "stato": "attivo",
+      "indirizzi": [],
+      "createdAt": "2024-11-18T12:44:28.603Z",
+      "updatedAt": "2024-11-18T12:44:28.603Z",
+      "__v": 0
+    }
+  ],
+  "ordines": [
+    {
+      "_id": "672ba01414c35d3d42f1e89b",
+      "nomeCliente": "Test Cliente",
+      "telefono": "1234567890",
+      "dataRitiro": "2024-11-06T16:57:53.972Z",
+      "prodotti": [
+        {
+          "nome": "Test Prodotto",
+          "quantita": 2,
+          "prezzo": 10,
+          "unita": "kg",
+          "_id": "672ba01414c35d3d42f1e89c"
+        }
+      ],
+      "totale": 0,
+      "createdAt": "2024-11-06T16:57:56.396Z",
+      "updatedAt": "2024-11-06T16:57:56.396Z",
+      "__v": 0
+    },
+    {
+      "_id": "67378e51210fa0c0efcef847",
+      "prodotti": [
+        {
+          "prodotto": "Pardulas",
+          "quantita": 1,
+          "prezzo": 18,
+          "unita": "Kg",
+          "note": "",
+          "_id": "67378e51210fa0c0efcef848"
+        }
+      ],
+      "dataRitiro": "2024-11-15",
+      "oraRitiro": "11:11",
+      "nomeCliente": "fgerg",
+      "daViaggio": false,
+      "telefono": "",
+      "note": "",
+      "stato": "da fare",
+      "createdAt": "2024-11-15T18:09:21.440Z",
+      "updatedAt": "2024-11-15T18:09:21.440Z",
+      "__v": 0
+    },
+    {
+      "_id": "67378ea5210fa0c0efcef84a",
+      "prodotti": [
+        {
+          "prodotto": "Pardulas",
+          "quantita": 1,
+          "prezzo": 18,
+          "unita": "Kg",
+          "note": "",
+          "_id": "67378ea5210fa0c0efcef84b"
+        }
+      ],
+      "dataRitiro": "2024-11-15",
+      "oraRitiro": "11:11",
+      "nomeCliente": "fgerg",
+      "daViaggio": false,
+      "telefono": "",
+      "note": "",
+      "stato": "da fare",
+      "createdAt": "2024-11-15T18:10:45.319Z",
+      "updatedAt": "2024-11-15T18:10:45.319Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b332adce09cfc97031023",
+      "prodotti": [
+        {
+          "prodotto": "Pardulas",
+          "quantita": 1,
+          "prezzo": 18,
+          "unita": "Kg",
+          "_id": "673b332adce09cfc97031024"
+        }
+      ],
+      "dataRitiro": "2024-11-19",
+      "oraRitiro": "15:00",
+      "nomeCliente": "Mario Rossi",
+      "telefono": "1234567890",
+      "note": "Test ordine",
+      "stato": "da fare",
+      "createdAt": "2024-11-18T12:29:30.649Z",
+      "updatedAt": "2024-11-18T12:29:30.649Z",
+      "__v": 0
+    },
+    {
+      "_id": "673b36ac7f882190dba4e0d2",
+      "prodotti": [
+        {
+          "prodotto": "Pardulas",
+          "quantita": 1,
+          "prezzo": 18,
+          "unita": "Kg",
+          "_id": "673b36ac7f882190dba4e0d3"
+        }
+      ],
+      "dataRitiro": "2024-11-19",
+      "oraRitiro": "15:00",
+      "nomeCliente": "Mario Rossi 1731933868304",
+      "telefono": "123-1731933868304",
+      "note": "Test ordine",
+      "stato": "da fare",
+      "createdAt": "2024-11-18T12:44:28.720Z",
+      "updatedAt": "2024-11-18T12:44:28.720Z",
+      "__v": 0
+    }
+  ]
+}

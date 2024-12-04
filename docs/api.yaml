@@ -1,0 +1,527 @@
+openapi: 3.0.0
+info:
+  title: API Pastificio Nonna Claudia
+  version: 1.0.0
+  description: |
+    API complete per la gestione del Pastificio Nonna Claudia.
+    
+    ## Funzionalità
+    * Gestione ordini e prodotti
+    * Backup e restore dei dati
+    * Export in vari formati
+    * Report e statistiche
+    * Gestione etichette e calendario
+    * Gestione clienti e fidelizzazione
+    * Prezzi speciali e sconti
+    * Sistema di consegne
+    * Notifiche e comunicazioni
+
+servers:
+  - url: http://localhost:5000
+    description: Server di sviluppo
+
+tags:
+  - name: Ordini
+    description: Gestione ordini
+  - name: Prodotti
+    description: Gestione catalogo prodotti
+  - name: Clienti
+    description: Gestione clienti e fidelizzazione
+  - name: Consegne
+    description: Gestione consegne e zone
+  - name: Calendario
+    description: Gestione calendario ordini
+  - name: Etichette
+    description: Gestione etichette e stampe
+  - name: Backup
+    description: Backup e restore
+  - name: Export
+    description: Export dati
+  - name: Report
+    description: Report e statistiche
+  - name: Prezzi
+    description: Gestione prezzi speciali e sconti
+  - name: Notifiche
+    description: Sistema di notifiche e comunicazioni
+paths:
+  /api/ordini:
+    get:
+      summary: Lista ordini
+      tags: [Ordini]
+      parameters:
+        - in: query
+          name: data
+          schema:
+            type: string
+            format: date
+          description: Filtra per data di ritiro
+        - in: query
+          name: cliente
+          schema:
+            type: string
+          description: Filtra per nome cliente
+        - in: query
+          name: stato
+          schema:
+            type: string
+            enum: [da fare, in lavorazione, completato, consegnato]
+          description: Filtra per stato ordine
+        - in: query
+          name: tipo
+          schema:
+            type: string
+            enum: [ritiro, consegna]
+          description: Filtra per tipo ordine
+      responses:
+        '200':
+          description: Lista degli ordini
+          content:
+            application/json:
+              example:
+                - id: "1"
+                  nomeCliente: "Mario Rossi"
+                  dataRitiro: "2024-11-16"
+                  oraRitiro: "15:00"
+                  tipo: "consegna"
+                  prodotti:
+                    - prodotto: "Pardulas"
+                      quantita: 1
+                      unita: "Kg"
+                      prezzo: 18
+                      prezzoSpeciale: 16
+                  totale: 16
+                  puntiGuadagnati: 16
+                  indirizzoConsegna:
+                    via: "Via Roma 123"
+                    citta: "Cagliari"
+                    cap: "09100"
+                    note: "Citofono piano 2"
+                  stato: "da fare"
+                  note: "Senza zucchero"
+
+  /api/consegne:
+    get:
+      summary: Lista consegne
+      tags: [Consegne]
+      parameters:
+        - in: query
+          name: data
+          schema:
+            type: string
+            format: date
+          description: Filtra per data
+        - in: query
+          name: zona
+          schema:
+            type: string
+          description: Filtra per zona di consegna
+      responses:
+        '200':
+          description: Lista delle consegne
+          content:
+            application/json:
+              example:
+                - id: "1"
+                  ordineId: "1"
+                  cliente: "Mario Rossi"
+                  indirizzo:
+                    via: "Via Roma 123"
+                    citta: "Cagliari"
+                    cap: "09100"
+                  orarioConsegna: "15:00-16:00"
+                  stato: "in consegna"
+                  corriere: "Giuseppe Verdi"
+                  note: "Citofono piano 2"
+
+  /api/zone-consegna:
+    get:
+      summary: Zone di consegna
+      tags: [Consegne]
+      responses:
+        '200':
+          description: Lista delle zone di consegna
+          content:
+            application/json:
+              example:
+                - id: "1"
+                  nome: "Cagliari Centro"
+                  cap: ["09100", "09124"]
+                  costoConsegna: 5
+                  minimoOrdine: 30
+                  tempiConsegna: "60min"
+                  disponibile: true
+
+  /api/fidelity:
+    get:
+      summary: Stato punti cliente
+      tags: [Clienti]
+      parameters:
+        - in: query
+          name: clienteId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Dettagli punti fedeltà
+          content:
+            application/json:
+              example:
+                clienteId: "123"
+                puntiTotali: 450
+                puntiDisponibili: 350
+                puntiUtilizzati: 100
+                storicoPunti:
+                  - data: "2024-11-16"
+                    punti: 16
+                    tipo: "acquisto"
+                    ordineId: "1"
+                  - data: "2024-11-15"
+                    punti: -100
+                    tipo: "riscatto"
+                    premio: "Sconto 10€"
+
+  /api/notifiche:
+    get:
+      summary: Lista notifiche
+      tags: [Notifiche]
+      parameters:
+        - in: query
+          name: tipo
+          schema:
+            type: string
+            enum: [ordine, consegna, promo, sistema]
+      responses:
+        '200':
+          description: Lista delle notifiche
+          content:
+            application/json:
+              example:
+                - id: "1"
+                  tipo: "ordine"
+                  titolo: "Nuovo ordine ricevuto"
+                  messaggio: "Ordine #123 da Mario Rossi"
+                  data: "2024-11-16T15:00:00Z"
+                  letta: false
+                  priorita: "alta"
+
+    post:
+      summary: Invia notifica
+      tags: [Notifiche]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notifica'
+
+  /api/comunicazioni:
+    post:
+      summary: Invia comunicazione
+      tags: [Notifiche]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tipo:
+                  type: string
+                  enum: [email, sms, push]
+                destinatari:
+                  type: array
+                  items:
+                    type: string
+                titolo:
+                  type: string
+                messaggio:
+                  type: string
+                schedulazione:
+                  type: string
+                  format: date-time
+components:
+  schemas:
+    Ordine:
+      type: object
+      required:
+        - nomeCliente
+        - dataRitiro
+        - oraRitiro
+        - prodotti
+        - tipo
+      properties:
+        id:
+          type: string
+        nomeCliente:
+          type: string
+          example: "Mario Rossi"
+        dataRitiro:
+          type: string
+          format: date
+          example: "2024-11-16"
+        oraRitiro:
+          type: string
+          example: "15:00"
+        tipo:
+          type: string
+          enum: [ritiro, consegna]
+          example: "consegna"
+        prodotti:
+          type: array
+          items:
+            $ref: '#/components/schemas/Prodotto'
+        cliente:
+          $ref: '#/components/schemas/Cliente'
+        indirizzoConsegna:
+          $ref: '#/components/schemas/Indirizzo'
+        puntiGuadagnati:
+          type: number
+          example: 16
+        stato:
+          type: string
+          enum: [da fare, in lavorazione, completato, consegnato]
+          example: "da fare"
+        note:
+          type: string
+          example: "Senza zucchero"
+
+    Prodotto:
+      type: object
+      required:
+        - prodotto
+        - quantita
+        - unita
+      properties:
+        prodotto:
+          type: string
+          example: "Pardulas"
+        quantita:
+          type: number
+          example: 1
+        unita:
+          type: string
+          enum: [Kg, unità, €]
+          example: "Kg"
+        prezzo:
+          type: number
+          example: 18
+        prezzoSpeciale:
+          type: number
+          example: 16
+        note:
+          type: string
+          example: "Senza zucchero"
+        allergeni:
+          type: array
+          items:
+            type: string
+          example: ["latte", "glutine"]
+        valoriNutrizionali:
+          $ref: '#/components/schemas/ValoriNutrizionali'
+
+    Cliente:
+      type: object
+      required:
+        - nome
+        - tipo
+      properties:
+        id:
+          type: string
+        nome:
+          type: string
+          example: "Mario Rossi"
+        tipo:
+          type: string
+          enum: [abituale, occasionale, business]
+          example: "abituale"
+        telefono:
+          type: string
+          example: "1234567890"
+        email:
+          type: string
+          example: "mario@email.com"
+        indirizzi:
+          type: array
+          items:
+            $ref: '#/components/schemas/Indirizzo'
+        scontoBase:
+          type: number
+          example: 10
+        puntiTotali:
+          type: number
+          example: 450
+        note:
+          type: string
+          example: "Preferisce consegna pomeridiana"
+
+    Indirizzo:
+      type: object
+      required:
+        - via
+        - citta
+        - cap
+      properties:
+        via:
+          type: string
+          example: "Via Roma 123"
+        citta:
+          type: string
+          example: "Cagliari"
+        cap:
+          type: string
+          example: "09100"
+        note:
+          type: string
+          example: "Citofono piano 2"
+
+    ValoriNutrizionali:
+      type: object
+      properties:
+        kcal:
+          type: number
+          example: 280
+        proteine:
+          type: number
+          example: 8
+        carboidrati:
+          type: number
+          example: 30
+        grassi:
+          type: number
+          example: 15
+        di_cui_saturi:
+          type: number
+          example: 5
+        fibre:
+          type: number
+          example: 2
+        sodio:
+          type: number
+          example: 0.5
+
+    ZonaConsegna:
+      type: object
+      required:
+        - nome
+        - cap
+        - costoConsegna
+      properties:
+        id:
+          type: string
+        nome:
+          type: string
+          example: "Cagliari Centro"
+        cap:
+          type: array
+          items:
+            type: string
+          example: ["09100", "09124"]
+        costoConsegna:
+          type: number
+          example: 5
+        minimoOrdine:
+          type: number
+          example: 30
+        tempiConsegna:
+          type: string
+          example: "60min"
+        disponibile:
+          type: boolean
+          example: true
+        orari:
+          type: object
+          properties:
+            lunedi:
+              type: string
+              example: "10:00-20:00"
+            martedi:
+              type: string
+              example: "10:00-20:00"
+            # ... altri giorni
+
+    Notifica:
+      type: object
+      required:
+        - tipo
+        - titolo
+        - messaggio
+      properties:
+        id:
+          type: string
+        tipo:
+          type: string
+          enum: [ordine, consegna, promo, sistema]
+        titolo:
+          type: string
+          example: "Nuovo ordine ricevuto"
+        messaggio:
+          type: string
+          example: "Ordine #123 da Mario Rossi"
+        data:
+          type: string
+          format: date-time
+        letta:
+          type: boolean
+          default: false
+        priorita:
+          type: string
+          enum: [bassa, normale, alta]
+          default: "normale"
+        datiAggiuntivi:
+          type: object
+          additionalProperties: true
+
+    PuntiEvento:
+      type: object
+      required:
+        - tipo
+        - punti
+      properties:
+        data:
+          type: string
+          format: date
+        punti:
+          type: number
+        tipo:
+          type: string
+          enum: [acquisto, riscatto, bonus, scadenza]
+        ordineId:
+          type: string
+        premio:
+          type: string
+        note:
+          type: string
+
+    StatisticheClienti:
+      type: object
+      properties:
+        periodo:
+          type: string
+          enum: [mese, trimestre, anno]
+        nuoviClienti:
+          type: number
+        clientiAttivi:
+          type: number
+        mediaOrdiniPerCliente:
+          type: number
+        distribuzioneClienti:
+          type: object
+          properties:
+            abituali:
+              type: number
+            occasionali:
+              type: number
+            business:
+              type: number
+        topClienti:
+          type: array
+          items:
+            type: object
+            properties:
+              cliente:
+                type: string
+              ordini:
+                type: number
+              totaleSpeso:
+                type: number

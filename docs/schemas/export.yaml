@@ -1,0 +1,18 @@
+# docs/schemas/export.yaml
+ExportOptions:
+  type: object
+  properties:
+    formato:
+      type: string
+      enum: [pdf, excel, csv]
+    dataInizio:
+      type: string
+      format: date
+    dataFine:
+      type: string
+      format: date
+    groupBy:
+      type: string
+      enum: [giorno, settimana, mese]
+    includeStats:
+      type: boolean

@@ -1,0 +1,23 @@
+# docs/schemas/backup.yaml
+Backup:
+  type: object
+  required:
+    - timestamp
+    - data
+  properties:
+    timestamp:
+      type: string
+      format: date-time
+    metadata:
+      type: object
+      properties:
+        version:
+          type: string
+        type:
+          type: string
+          enum: [full, incremental]
+        createdAt:
+          type: string
+          format: date-time
+    data:
+      type: object
