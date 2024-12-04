@@ -1,4 +1,3 @@
-// server.js
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
@@ -16,10 +15,13 @@ import { errorHandler } from './middleware/error.js';
 import compression from 'compression';
 import fileUpload from 'express-fileupload';
 import { createServer } from 'http';
+import { Server } from 'socket.io';
 import { initializeSocketIO } from './src/utils/notifiche.js';
 import backupService from './services/backupService.js';
 import { Ordine } from './models/ordine.js';
 import { User } from './models/User.js';
+import fs from 'fs';
+import path from 'path';
 
 // Configura dotenv
 config();
